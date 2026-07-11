@@ -12,6 +12,7 @@ function Portfolio() {
 
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
   const experienceRef = useRef(null);
   const contactRef = useRef(null);
 
@@ -27,6 +28,7 @@ function Portfolio() {
       const sections = [
         { ref: homeRef, name: 'home' },
         { ref: aboutRef, name: 'about' },
+        { ref: skillsRef, name: 'skills' },
         { ref: experienceRef, name: 'experience' },
         { ref: contactRef, name: 'contact' }
       ];
@@ -57,6 +59,7 @@ function Portfolio() {
     const refs = {
       home: homeRef,
       about: aboutRef,
+      skills: skillsRef,
       experience: experienceRef,
       contact: contactRef
     };
@@ -99,7 +102,7 @@ function Portfolio() {
             </button>
             <div className="flex items-center gap-8">
               <div className="hidden md:flex gap-8">
-                {['home', 'about', 'experience', 'contact'].map((section) => (
+                {['home', 'about', 'skills', 'experience', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
@@ -179,13 +182,26 @@ function Portfolio() {
           }`}>
             About Me
           </h2>
-          <p className={`text-lg leading-relaxed mb-16 transition-colors max-w-4xl mx-auto ${
-            isDark ? 'text-gray-300' : 'text-gray-600'
-          }`}>
-            {profile.summary}
-          </p>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {profile.summary.split('\n\n').filter(p => p.trim()).map((paragraph, index) => (
+              <p key={index} className={`text-lg leading-relaxed transition-colors ${
+                isDark ? 'text-gray-300' : 'text-gray-600'
+              }`}>
+                {paragraph.trim()}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Core Competencies */}
+      {/* Skills Section */}
+      <section ref={skillsRef} className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-16 text-center transition-colors ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
+            Core Competencies
+          </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-4">
               <h3 className={`text-2xl font-bold mb-6 transition-colors ${
