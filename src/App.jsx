@@ -586,7 +586,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/gh-react-portfolio">
+    <Router basename="/nagendra">
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/case-study/:id" element={<CaseStudyDetail isDark={isDark} />} />
