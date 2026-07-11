@@ -8,6 +8,7 @@ function Portfolio() {
   const [isDark, setIsDark] = useState(true);
   const [showAllCerts, setShowAllCerts] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const homeRef = useRef(null);
@@ -65,6 +66,7 @@ function Portfolio() {
     };
 
     refs[sectionName]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setMobileMenuOpen(false); // Close mobile menu after clicking
   };
 
   const { profile, experience, case_studies, core_competencies, certifications_and_awards, education } = backgroundData;
@@ -100,7 +102,7 @@ function Portfolio() {
             >
               {profile.name.split(' ').map((n, i) => i === 0 ? n[0] : '').join('')}
             </button>
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4">
               <div className="hidden md:flex gap-8">
                 {['home', 'about', 'skills', 'experience', 'contact'].map((section) => (
                   <button
@@ -121,6 +123,8 @@ function Portfolio() {
                   </button>
                 ))}
               </div>
+
+              {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
                 className={`p-2.5 rounded-xl transition-all duration-300 hover:scale-110 ${
@@ -140,9 +144,57 @@ function Portfolio() {
                   </svg>
                 )}
               </button>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`md:hidden p-2.5 rounded-xl transition-all duration-300 ${
+                  isDark
+                    ? 'bg-gray-800 hover:bg-gray-700'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className={`md:hidden border-t transition-colors ${
+            isDark ? 'border-gray-800 bg-gray-900' : 'border-gray-200 bg-white'
+          }`}>
+            <div className="px-6 py-4 space-y-3">
+              {['home', 'about', 'skills', 'experience', 'contact'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`block w-full text-left px-4 py-3 rounded-lg capitalize font-medium transition-all duration-300 ${
+                    activeSection === section
+                      ? isDark
+                        ? 'bg-blue-500/20 text-blue-400'
+                        : 'bg-blue-50 text-blue-600'
+                      : isDark
+                      ? 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  }`}
+                >
+                  {section}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
