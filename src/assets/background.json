@@ -1,0 +1,114 @@
+{
+  "profile": {
+    "name": "Nagendra Balachandra",
+    "location": "San Diego, CA",
+    "email": "balachandra.nagendra@gmail.com",
+    "phone": "(858) 766-0916",
+    "title": "AI Portfolio Leader & Agentic Transformation Executive",
+    "summary": "I am a technical leader and delivery executive with over 14 years of experience in enterprise consulting and digital transformation. My journey has been defined by a deep passion for building meaningful solutions and a commitment to helping organizations navigate complex architectures, from data infrastructure to autonomous AI. \n\n\n More than anything, I believe that great technology is entirely a reflection of the people behind it. I’ve been incredibly fortunate to lead wonderfully talented, cross-functional teams of engineers and strategists. Together, we’ve taken on high-stakes challenges, stabilized critical accounts, and co-architected major enterprise partnerships by focusing on transparency, deep technical care, and earning the genuine trust of our clients."
+  },
+  "key_metrics": {
+    "largest_deal_tcv": "$71,000,000",
+    "lifetime_pipeline_influence": "$40,000,000+",
+    "ytd_billable_utilization": "207%",
+    "customer_csat": "5.0 / 5.0"
+  },
+  "experience": [
+    {
+      "company": "Salesforce Inc.",
+      "role": "Senior Director, Customer Engagement",
+      "tenure": "2022 - Present",
+      "highlights": [
+        "Partnered cross-functionally to close a historic $71M multi-cloud transaction at US Nations Builder ($51M license AELA/Mulesoft + $20M Professional Services), setting the record as the largest deal in all of AMERS for Q4.",
+        "Served as the strategic and technical nexus connecting Product Orgs, Services, and Customer Stakeholders to deploy Agentforce and Data Cloud systems, generating 1.8M executable work orders and creating an estimated $600M in long-term business value for US Nations Builder.",
+        "Specialized in stepping into highly complex, at-risk ('red') accounts to stabilize delivery and restore customer trust, reviving stalled Data Cloud opportunities at an Enterprise Home Services Network and a National Security Provider to achieve a perfect 5.0 customer CSAT score.",
+        "Executed zero-notice competitive field maneuvers under intense timelines, rapidly engineering a $3M+ architecture roadmap for a Global Facilities Management Firm alongside active competition and leading a continuous 18-hour turnaround for an Enterprise Infrastructure Conglomerate to secure executive suite alignment.",
+        "Delivered 60-minute, deep-dive technical demos directly to Fortune 500 C-suites and Tier-1 consultancy partners during in-person board meetings, collaborating with the Unified Agentforce Platform Product and CTO leadership to translate field mechanics into core roadmap features.",
+        "Maintained a 207% YTD billable utilization rate while actively mentoring cross-functional delivery squads, conducting national Agentforce enablement sessions, and systematically guiding team members through advanced specialist certifications."
+      ]
+    },
+    {
+      "company": "Slalom Consulting",
+      "role": "Principal & Salesforce Practice Leader",
+      "tenure": "2016 - 2022",
+      "highlights": [
+        "Headed the Salesforce Practice for the Southern California geography, managing commercial pipeline, capacity planning, and practice strategy to scale the market with 100% Year-over-Year growth.",
+        "Built, coached, and scaled a premier regional group of 20+ multi-functional professionals spanning enterprise architecture, technical engineering, and digital transformation strategy.",
+        "Managed 50+ successful full-lifecycle enterprise engagements across healthcare, tech, and manufacturing sectors, acting as the primary advisory point for architectural governance and technical design."
+      ]
+    }
+  ],
+  "case_studies": [
+    {
+      "client_alias": "US Nations Builder",
+      "industry": "Real Estate & Construction",
+      "challenge": "A complex, high-stakes ecosystem requiring seamless alignment across major management consulting partners, internal product engineering teams, and rapidly changing client priorities.",
+      "solution": "Aligned stakeholders by leading a 60-minute in-person board presentation to the CEO and CFO, co-designing a first-of-its-kind multi-agent orchestration architecture utilizing Agentforce and Data Cloud.",
+      "impact": "Generated 1.8M executable work orders ($600M in long-term value framework) and secured a $71M total transaction, marking the largest deal in AMERS Q4."
+    },
+    {
+      "client_alias": "Enterprise Home Services Network",
+      "industry": "Consumer Services",
+      "challenge": "Overcoming deep customer objections regarding a historic 'build vs. buy' platform strategy, halting crucial software license sales and putting the account into a high-risk 'red' status.",
+      "solution": "Systematically logged and mapped systemic technical debt to high-value AI use cases, delivering a highly customized, value-led Data Cloud demonstration directly to IT and software engineering leadership.",
+      "impact": "Successfully revived the account to 'green', unlocked net-new license sales, and closed out the engagement with a perfect 5.0 CSAT score."
+    },
+    {
+      "client_alias": "Global Facilities Management Firm",
+      "industry": "Commercial Services",
+      "challenge": "High-intensity, short-notice competitive field maneuver requiring immediate technical architecture and commercial scoping to counter aggressive rival ecosystems.",
+      "solution": "Executed a herculean discovery sprint over a single week to isolate competitive technical advantages and engineer a comprehensive autonomous agent roadmap.",
+      "impact": "Successfully positioned a viable $3M+ program roadmap and established the platform as the go-to technical foundation for their next-generation services rollout."
+    }
+  ],
+  "core_competencies": {
+    "ai_and_architecture": [
+      "Agentforce Platform",
+      "Data Cloud (CDP)",
+      "LLM System Architecture",
+      "Multi-Agent Orchestration",
+      "Event-Driven Architecture",
+      "API Integration",
+      "Advanced Data Pipelines"
+    ],
+    "commercial_and_execution": [
+      "Mega-Deal Scoping ($70M+ TCV)",
+      "C-Suite Advisory",
+      "Complex Account Recovery",
+      "Cross-Cloud Services Sales",
+      "Resource Optimization",
+      "Product Roadmap Interactivity"
+    ]
+  },
+  "certifications_and_awards": {
+    "enterprise_recognition": [
+      "Salesforce CBS Delivery Leader of the Year (FY26)",
+      "Designated Internal 'Agentblazer Legend' / 'Agentforce Legend'"
+    ],
+    "credentials_count": "30x Salesforce Certified",
+    "key_credentials": [
+      "Certified Application Architect",
+      "Certified System Architect",
+      "Agentforce Specialist",
+      "Data Cloud Specialist",
+      "AWS Certified Practitioner",
+      "MuleSoft Certified Practitioner"
+    ],
+    "industry_honors": [
+      "4x Salesforce Partner Innovation Award Winner",
+      "Dreamforce Customer Success Award Winner",
+      "3x Trailblazer Ranger (Triple Star Ranger)"
+    ]
+  },
+  "education": {
+    "graduate": {
+      "degree": "Master of Science, Computer Science",
+      "institution": "San Diego State University",
+      "gpa": "3.9 / 4.0"
+    },
+    "undergraduate": {
+      "degree": "Bachelor of Engineering, Computer Science",
+      "institution": "VTU, Bangalore, India"
+    }
+  }
+}
