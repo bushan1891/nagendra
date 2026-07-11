@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import backgroundData from './assets/background.json';
 import certificationsData from './assets/certifications.json';
 import CaseStudyDetail from './components/CaseStudyDetail';
+import AnimatedHeroBackground from './components/AnimatedHeroBackground';
 
 function Portfolio() {
   const [isDark, setIsDark] = useState(true);
@@ -198,29 +199,94 @@ function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section ref={homeRef} className="min-h-screen flex items-center justify-center px-6">
-        <div className="max-w-5xl mx-auto text-center animate-fadeIn">
+      <section ref={homeRef} className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <AnimatedHeroBackground isDark={isDark} />
+          {/* Gradient Overlay */}
+          <div className={`absolute inset-0 ${
+            isDark
+              ? 'bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-gray-900/40'
+              : 'bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-gray-50/80'
+          }`}></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto text-center animate-fadeIn">
+          {/* AI Badge */}
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 animate-slideUp ${
+            isDark
+              ? 'bg-blue-500/10 border border-blue-500/20'
+              : 'bg-blue-50 border border-blue-200'
+          }`}>
+            <div className="relative">
+              <div className={`w-2 h-2 rounded-full animate-pulse ${
+                isDark ? 'bg-blue-400' : 'bg-blue-500'
+              }`}></div>
+              <div className={`absolute inset-0 w-2 h-2 rounded-full animate-ping ${
+                isDark ? 'bg-blue-400' : 'bg-blue-500'
+              }`}></div>
+            </div>
+            <span className={`text-sm font-medium ${
+              isDark ? 'text-blue-400' : 'text-blue-600'
+            }`}>
+              AI Portfolio Leader
+            </span>
+          </div>
+
           <h1 className={`text-6xl md:text-7xl lg:text-8xl font-bold mb-6 transition-colors animate-slideUp ${
             isDark ? 'text-white' : 'text-gray-900'
           }`}>
             {profile.name}
           </h1>
+
           <p className={`text-xl md:text-2xl mb-6 transition-colors max-w-3xl mx-auto animate-slideUp animation-delay-200 ${
-            isDark ? 'text-gray-400' : 'text-gray-600'
+            isDark ? 'text-gray-300' : 'text-gray-700'
           }`}>
             {profile.title}
           </p>
+
           <p className={`text-sm mb-12 transition-colors animate-slideUp animation-delay-400 ${
             isDark ? 'text-gray-500' : 'text-gray-500'
           }`}>
             {profile.location} • {profile.email}
           </p>
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-slideUp animation-delay-600"
+
+          {/* CTA Buttons */}
+          <div className="flex justify-center gap-4 animate-slideUp animation-delay-600">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={`px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+                isDark
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white'
+                  : 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white'
+              }`}
+            >
+              Get In Touch
+            </button>
+            <button
+              onClick={() => scrollToSection('experience')}
+              className={`px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 border-2 ${
+                isDark
+                  ? 'border-blue-500/50 hover:bg-blue-500/10 text-blue-400'
+                  : 'border-blue-500 hover:bg-blue-50 text-blue-600'
+              }`}
+            >
+              View Work
+            </button>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg
+            className={`w-6 h-6 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
           >
-            Get In Touch
-          </button>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </section>
 
