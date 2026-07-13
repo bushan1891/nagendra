@@ -14,9 +14,9 @@ function Portfolio() {
 
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
-  const skillsRef = useRef(null);
   const experienceRef = useRef(null);
   const contactRef = useRef(null);
+  const skillsRef = useRef(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -30,9 +30,9 @@ function Portfolio() {
       const sections = [
         { ref: homeRef, name: 'home' },
         { ref: aboutRef, name: 'about' },
-        { ref: skillsRef, name: 'skills' },
         { ref: experienceRef, name: 'experience' },
-        { ref: contactRef, name: 'contact' }
+        { ref: contactRef, name: 'contact' },
+        { ref: skillsRef, name: 'skills' }
       ];
 
       const scrollPosition = window.scrollY + 100;
@@ -61,9 +61,9 @@ function Portfolio() {
     const refs = {
       home: homeRef,
       about: aboutRef,
-      skills: skillsRef,
       experience: experienceRef,
-      contact: contactRef
+      contact: contactRef,
+      skills: skillsRef
     };
 
     refs[sectionName]?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -105,7 +105,7 @@ function Portfolio() {
             </button>
             <div className="flex items-center gap-4">
               <div className="hidden md:flex gap-8">
-                {['home', 'about', 'skills', 'experience', 'contact'].map((section) => (
+                {['home', 'about', 'experience', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
@@ -176,7 +176,7 @@ function Portfolio() {
             isDark ? 'border-gray-800 bg-gray-900' : 'border-gray-200 bg-white'
           }`}>
             <div className="px-6 py-4 space-y-3">
-              {['home', 'about', 'skills', 'experience', 'contact'].map((section) => (
+              {['home', 'about', 'experience', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -369,54 +369,75 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section ref={experienceRef} className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-16 text-center transition-colors ${
+      {/* Experience Section - Timeline */}
+      <section ref={experienceRef} className={`py-32 px-6 transition-colors ${
+        isDark ? 'bg-gray-800/30' : 'bg-white'
+      }`}>
+        <div className="max-w-5xl mx-auto">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-20 text-center transition-colors ${
             isDark ? 'text-white' : 'text-gray-900'
           }`}>
-            Professional Experience
+            Professional Journey
           </h2>
-          <div className="space-y-12">
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className={`absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 transform md:-translate-x-1/2 ${
+              isDark ? 'bg-gray-700' : 'bg-gray-300'
+            }`}></div>
+
             {experience.map((exp, index) => (
-              <div
-                key={index}
-                className={`rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] ${
-                  isDark
-                    ? 'bg-gray-800 border border-gray-700'
-                    : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
-                }`}
-              >
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
-                  <div>
+              <div key={index} className={`relative mb-16 ${index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:ml-auto'}`}>
+                {/* Timeline Dot */}
+                <div className={`absolute left-8 md:left-1/2 w-4 h-4 rounded-full transform md:-translate-x-1/2 -translate-y-1 ${
+                  isDark ? 'bg-blue-500 ring-4 ring-gray-800' : 'bg-blue-500 ring-4 ring-white'
+                }`}>
+                  <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-75"></div>
+                </div>
+
+                {/* Content Card */}
+                <div className={`ml-20 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
+                  <div className={`rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 ${
+                    isDark
+                      ? 'bg-gray-800 border border-gray-700 shadow-xl'
+                      : 'bg-white border border-gray-200 shadow-lg hover:shadow-2xl'
+                  }`}>
+                    {/* Date Badge */}
+                    <div className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold mb-4 ${
+                      isDark
+                        ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                        : 'bg-blue-50 text-blue-600 border border-blue-200'
+                    }`}>
+                      {exp.tenure}
+                    </div>
+
+                    {/* Company & Role */}
                     <h3 className={`text-2xl font-bold mb-2 transition-colors ${
                       isDark ? 'text-white' : 'text-gray-900'
                     }`}>
                       {exp.role}
                     </h3>
-                    <p className="text-blue-500 font-semibold text-lg">{exp.company}</p>
+                    <p className="text-blue-500 font-semibold text-lg mb-4">{exp.company}</p>
+
+                    {/* Highlights */}
+                    <ul className="space-y-3">
+                      {exp.highlights.map((highlight, hIndex) => (
+                        <li
+                          key={hIndex}
+                          className={`flex gap-3 text-sm leading-relaxed transition-colors ${
+                            isDark ? 'text-gray-300' : 'text-gray-600'
+                          }`}
+                        >
+                          <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <span className={`mt-2 md:mt-0 inline-block px-4 py-2 rounded-full text-sm font-medium ${
-                    isDark
-                      ? 'bg-blue-500/10 text-blue-400'
-                      : 'bg-blue-50 text-blue-600'
-                  }`}>
-                    {exp.tenure}
-                  </span>
                 </div>
-                <ul className="space-y-4">
-                  {exp.highlights.map((highlight, hIndex) => (
-                    <li
-                      key={hIndex}
-                      className={`flex gap-3 text-sm leading-relaxed transition-colors ${
-                        isDark ? 'text-gray-300' : 'text-gray-600'
-                      }`}
-                    >
-                      <span className="text-blue-500 mt-1 flex-shrink-0">•</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
