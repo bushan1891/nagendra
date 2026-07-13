@@ -312,63 +312,6 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section ref={skillsRef} className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-16 text-center transition-colors ${
-            isDark ? 'text-white' : 'text-gray-900'
-          }`}>
-            Core Competencies
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-bold mb-6 transition-colors ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}>
-                AI & Architecture
-              </h3>
-              <div className="space-y-3">
-                {core_competencies.ai_and_architecture.map((skill, index) => (
-                  <div
-                    key={skill}
-                    style={{ animationDelay: `${index * 50}ms` }}
-                    className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn ${
-                      isDark
-                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                    }`}
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-bold mb-6 transition-colors ${
-                isDark ? 'text-white' : 'text-gray-900'
-              }`}>
-                Commercial & Execution
-              </h3>
-              <div className="space-y-3">
-                {core_competencies.commercial_and_execution.map((skill, index) => (
-                  <div
-                    key={skill}
-                    style={{ animationDelay: `${index * 50}ms` }}
-                    className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn ${
-                      isDark
-                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
-                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                    }`}
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Experience Section - Timeline */}
       <section ref={experienceRef} className={`py-32 px-6 transition-colors ${
         isDark ? 'bg-gray-800/30' : 'bg-white'
@@ -694,6 +637,65 @@ function Portfolio() {
             >
               {profile.phone}
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section ref={skillsRef} className={`py-32 px-6 transition-colors ${
+        isDark ? 'bg-gray-800/30' : 'bg-white'
+      }`}>
+        <div className="max-w-6xl mx-auto">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-16 text-center transition-colors ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
+            Core Competencies
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-bold mb-6 transition-colors ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                AI & Architecture
+              </h3>
+              <div className="space-y-3">
+                {core_competencies.ai_and_architecture.map((skill, index) => (
+                  <div
+                    key={skill}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                    className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn ${
+                      isDark
+                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-bold mb-6 transition-colors ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
+                Commercial & Execution
+              </h3>
+              <div className="space-y-3">
+                {core_competencies.commercial_and_execution.map((skill, index) => (
+                  <div
+                    key={skill}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                    className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn ${
+                      isDark
+                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
